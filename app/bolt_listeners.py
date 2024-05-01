@@ -69,8 +69,7 @@ def start_convo(
             {"role": "system", "content": new_system_text},
             {
                 "role": "user",
-                "content": f"<@{user_id}>: "
-                + format_openai_message_content(msg_text, TRANSLATE_MARKDOWN),
+                "content": format_openai_message_content(msg_text, TRANSLATE_MARKDOWN),
             },
         ]
         loading_text = translate(

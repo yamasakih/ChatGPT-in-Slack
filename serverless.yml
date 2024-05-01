@@ -1,4 +1,4 @@
-frameworkVersion: '3'
+frameworkVersion: "3"
 service: slack-chat-gpt-bot
 provider:
   name: aws
@@ -14,13 +14,13 @@ provider:
           Resource: "*"
         - Effect: Allow
           Action:
-            - 's3:ListBucket'
-            - 's3:GetObject'
-            - 's3:GetObjectAcl'
-            - 's3:PutObject'
-            - 's3:PutObjectAcl'
-            - 's3:ReplicateObject'
-            - 's3:DeleteObject'
+            - "s3:ListBucket"
+            - "s3:GetObject"
+            - "s3:GetObjectAcl"
+            - "s3:PutObject"
+            - "s3:PutObjectAcl"
+            - "s3:ReplicateObject"
+            - "s3:DeleteObject"
           Resource:
             - arn:aws:s3:::${env:SLACK_INSTALLATION_S3_BUCKET_NAME}
             - arn:aws:s3:::${env:SLACK_INSTALLATION_S3_BUCKET_NAME}/*
@@ -37,7 +37,7 @@ provider:
     SLACK_INSTALLATION_S3_BUCKET_NAME: ${env:SLACK_INSTALLATION_S3_BUCKET_NAME}
     SLACK_STATE_S3_BUCKET_NAME: ${env:SLACK_STATE_S3_BUCKET_NAME}
     OPENAI_S3_BUCKET_NAME: ${env:OPENAI_S3_BUCKET_NAME}
-    OPENAI_TIMEOUT_SECONDS: 25
+    OPENAI_TIMEOUT_SECONDS: 60
     SLACK_APP_LOG_LEVEL: WARN
     TRANSLATE_MARKDOWN: true
 
@@ -68,4 +68,4 @@ custom:
   pythonRequirements:
     zip: true
     slim: true
-    dockerizePip: true  # This option must be enabled for including Linux compatible *.so files
+    dockerizePip: true # This option must be enabled for including Linux compatible *.so files
